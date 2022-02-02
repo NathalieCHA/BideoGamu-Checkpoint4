@@ -2,6 +2,10 @@
 
 {% block title %}BideoGamu{% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/index.css">
+{% endblock %}
+
 {% block body %}
 
 <div class="videogames">
@@ -13,7 +17,7 @@
                     <div class ="cliquable">
                         <h2>{{ videogame.name }}</h2>
                         <p>Catégorie : {{ videogame.category.name }}<p>
-                        <p>{{ videogame.description| striptags | slice(0, 200) }} <a href="{{ path("videogames_show") }}">[...]</a></p>
+                        <p>{{ videogame.description| striptags | slice(0, 200) }} <a href="">[...]</a></p>
                     </div>
             </div>
         {% else %}

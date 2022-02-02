@@ -13,7 +13,11 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(VideogamesRepository $videogamesRepository): Response
     {
-        $videogames = $videogamesRepository->findOneBy(['id' => 'desc']);
+        $videogames = $this->getDoctrine()
+        ->getRepository(Videogames::class)
+        ->findBy([], ['name' => 'desc']);
+
+        // $videogames = $videogamesRepository->findOneBy(['id' => 'desc']);
 
         return $this->render('home/index.html.twig', ['videogames' => $videogames]);
     }
