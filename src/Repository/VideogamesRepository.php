@@ -19,6 +19,27 @@ class VideogamesRepository extends ServiceEntityRepository
         parent::__construct($registry, Videogames::class);
     }
 
+    public function findTheLastSix()
+    {
+        $query = $this->createQueryBuilder('vid')
+        ->orderBy('vid.id','DESC')
+        ->setMaxResults(3)
+        ->getQuery();
+
+        return $query->getResult();
+    }
+
+    public function findLikeName(string $name)
+    {
+    $queryBuilder = $this->createQueryBuilder('v')
+        ->where('v.name LIKE :name')
+        ->setParameter('name', '%' . $name . '%')
+        ->orderBy('v.name', 'ASC')
+        ->getQuery();
+
+    return $queryBuilder->getResult();
+    }
+
     // /**
     //  * @return Videogames[] Returns an array of Videogames objects
     //  */

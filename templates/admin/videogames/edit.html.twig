@@ -1,13 +1,14 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Edit Videogames{% endblock %}
+{% block title %}BideoGamu{% endblock %}
 
 {% block body %}
     <h1>Edit Videogames</h1>
 
     {{ include('admin/videogames/_form.html.twig', {'button_label': 'Update'}) }}
 
+    {{ include('admin/videogames/_delete_form.html.twig') }}
+
     <a href="{{ path('adminvideogames_show') }}">back to list</a>
 
-    {{ include('admin/videogames/_delete_form.html.twig') }}
 {% endblock %}

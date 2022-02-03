@@ -1,0 +1,166 @@
+/*HOME*/
+
+.toptitle {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Anton', sans-serif;
+}
+
+.videogames {
+    display: flex;
+    flex: row;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.videogames img {
+    display: flex;
+    align-items: center;
+}
+
+.full {
+    overflow: hidden;
+}
+
+.encart {
+    box-shadow: 2px 2px 2px grey;
+}
+
+.videogames div {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+}
+
+img {
+    width: 220PX;
+    height: 320PX;
+    object-fit: cover;
+    transform-origin: center;
+    transform: scale(1);
+    transition-duration: .5s;
+}
+
+img:hover {
+    -webkit-transform: scale(1.10);
+    /* Safari et Chrome */
+    -moz-transform: scale(1.10);
+    /* Firefox */
+    -ms-transform: scale(1.10);
+    /* Internet Explorer 9 */
+    -o-transform: scale(1.10);
+    /* Opera */
+    transform: scale(1.10);
+}
+
+p {
+    margin: 5px;
+}
+
+
+/* GAMES PAGES*/
+
+.searchbar input {
+    display: table-cell;
+    vertical-align: middle;
+    width: 400px;
+    padding: 8px;
+    border: 10px solid var(--darky);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+}
+
+.searchbar button {
+    border: none;
+}
+
+.fa-search {
+    font-size: 30px;
+    color: var(--darky);
+}
+
+.fa-search:hover {
+    color: var(--secondary-color);
+    ;
+}
+
+.searchbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+
+/*ADMIN - INDEX*/
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game {
+    margin-top: 3%;
+    border: black 10px solid;
+    width: 50%;
+    padding: 2%;
+}
+
+.category {
+    margin-top: 3%;
+    border: black 10px solid;
+    width: 50%;
+    padding: 2%;
+}
+
+.game button {
+    border: black;
+}
+
+.fa-plus {
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.modif {
+    display: flex;
+    justify-content: center;
+}
+
+.modif p {
+    white-space: nowrap;
+}
+
+.titreadmin {
+    margin: 0;
+    text-align: center;
+}
+
+
+/*ADMIN - ADD GAME*/
+
+
+/*ADMIN - SHOW GAMES*/
+
+
+/*ADMIN - EDIT GAME*/
+
+
+/*ADMIN - ADD CATEGORY*/
+
+
+/*ADMIN - SHOW CATEGORIES*/
+
+
+/*ADMIN - EDIT CATEGORY*/

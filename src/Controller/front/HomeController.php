@@ -13,9 +13,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(VideogamesRepository $videogamesRepository): Response
     {
-        $videogames = $this->getDoctrine()
-        ->getRepository(Videogames::class)
-        ->findBy([], ['name' => 'desc']);
+        $videogames = $videogamesRepository->findTheLastSix();
 
         // $videogames = $videogamesRepository->findOneBy(['id' => 'desc']);
 

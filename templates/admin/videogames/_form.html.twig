@@ -1,4 +1,59 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+    <div class="">{{ form_label(form.name) }}</div>
+        <div> {{ form_widget(form.name) }} </div>
+
+        <small>{{ form_help(form.name) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.name) }}
+    </div>
+
+    <div class="">{{ form_label(form.description) }}</div>
+        <div> {{ form_widget(form.description) }} </div>
+
+        <small>{{ form_help(form.description) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.description) }}
+    </div>
+
+    <div class="">{{ form_label(form.releaseDate) }}</div>
+        <div> {{ form_widget(form.releaseDate) }} </div>
+
+        <small>{{ form_help(form.releaseDate) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.releaseDate) }}
+    </div>
+
+    <div class="">{{ form_label(form.howLongToBeat) }}</div>
+        <div> {{ form_widget(form.howLongToBeat) }} </div>
+
+        <small>{{ form_help(form.howLongToBeat) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.howLongToBeat) }}
+    </div>
+
+    <div class="">{{ form_label(form.imgFile, 'Poster') }}</div>
+        <div> {{ form_widget(form.imgFile) }} </div>
+
+        <small>{{ form_help(form.imgFile) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.imgFile) }}
+    </div>
+
+    <div class="">{{ form_label(form.category) }}</div>
+        <div> {{ form_widget(form.category) }} </div>
+
+        <small>{{ form_help(form.category) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.category) }}
+    </div>
+
+    <button class="btn">{{ button_label|default('Add this new game') }}</button>
 {{ form_end(form) }}

@@ -1,6 +1,6 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Videogames{% endblock %}
+{% block title %}BideoGamu{% endblock %}
 
 {% block body %}
     <h1>Videogames</h1>
@@ -29,14 +29,11 @@
             </tr>
             <tr>
                 <th>Img</th>
-                <td>{{ videogame.img }}</td>
+                <td><a href="{{ path("videogames_index") }}"><img src="{{ vich_uploader_asset(videogame, "imgFile") }}"></a></td>
             </tr>
         </tbody>
     </table>
 
     <a href="{{ path('videogames_index') }}">back to list</a>
 
-    <a href="{{ path('videogames_edit', {'id': videogame.id}) }}">edit</a>
-
-    {{ include('front/videogames/_delete_form.html.twig') }}
 {% endblock %}

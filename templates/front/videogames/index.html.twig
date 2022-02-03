@@ -1,14 +1,25 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Videogames index{% endblock %}
+{% block title %}BideoGamu{% endblock %}
 
 {% block body %}
+
+{{ form_start(form) }}
+        <div class="searchbar">
+            <div>
+            {{ form_widget(form.search) }}
+                {{ form_help(form.search) }}
+                {{ form_errors(form.search) }}
+                <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+{{ form_end(form) }}
 
 <div class="videogames">
         {% for videogame in videogames %}
             <div class="encart">
                 <div class="full">
-                    <a href="{{ path("videogames_index") }}"><img src={{ videogame.img }}></a>
+                    <a href="{{ path("videogames_show", { 'id': videogame.id }) }}"><img src="{{ vich_uploader_asset(videogame, "imgFile") }}"></a>
                 </div>
                     <div class ="cliquable">
                         <h2>{{ videogame.name }}</h2>

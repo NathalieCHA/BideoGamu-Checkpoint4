@@ -7,11 +7,14 @@
 
 {% block body %}
 
-<div class="videogames">
+    <div class="toptitle"><p>Latest game added</p></div>
+
+    <div class="videogames">
         {% for videogame in videogames %}
             <div class="encart">
                 <div class="full">
-                    <a href="{{ path("videogames_index") }}"><img src={{ videogame.img }}></a>
+                    <a href="{{ path("videogames_index") }}"><img src="{{ vich_uploader_asset(videogame, "imgFile") }}"></a>
+
                 </div>
                     <div class ="cliquable">
                         <h2>{{ videogame.name }}</h2>

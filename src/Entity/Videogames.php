@@ -3,11 +3,17 @@
 namespace App\Entity;
 
 use DateTime;
+use DateTimeInterface;
+use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\VideogamesRepository;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints\Date;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: VideogamesRepository::class)]
+#[ORM\Entity(repositoryClass:VideogamesRepository::class)]
+#[Vich\Uploadable]
 class Videogames
 {
     #[ORM\Id]
@@ -31,8 +37,23 @@ class Videogames
     #[ORM\Column(type: 'string', length: 255)]
     private $img;
 
+
+    #[Vich\UploadableField(mapping: "img_file", fileNameProperty: "img")]
+    #[Assert\File(
+         maxSize : "1M",
+         mimeTypes : ["image/jpeg", "image/png", "image/webp"],
+     )]
+
+    private $imgFile;
+
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'videogames')]
     private $category;
+
+    /**
+    * @ORM\Column(type="Datetime")
+    */
+    private DateTimeInterface $updatedAt;
+
 
     public function getId(): ?int
     {
@@ -107,6 +128,31 @@ class Videogames
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function setImgFile(File $img = null)
+    {
+      $this->imgFile = $img;
+      if ($img) {
+        $this->updatedAt = new DateTime('now');
+      }
+    }
+
+    public function getImgFile(): ?File
+    {
+        return $this->imgFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

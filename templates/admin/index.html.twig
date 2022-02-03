@@ -1,19 +1,52 @@
 {% extends 'front/base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/assets/css/admin/accueil.css">
 {% endblock %}
 
-{% block title %}{% endblock %}
+{% block title %}<title>BideoGamu</title>{% endblock %}
 
 {% block body %}
-    <div class="btn">
-        <a href="{{ path('adminvideogames_new') }}"><button class="btn">Add new game</button></a>
-        <a href="{{ path('adminvideogames_show') }}"><button class="btn">Edit a game</button></a>
-    </div>
+    <div class="menu">
+        <div class="game">
 
-    <div class="btn">
-        <a href="{{ path('admincategory_new') }}"><button class="btn">Add new categories</button></a>
-        <a href="{{ path('admincategory_show') }}"><button class="btn"> Edit a categories</button></a>
+            <h2 class="titreadmin">GAMES</h2>
+
+            <div class="modif">
+                <a href="{{ path('adminvideogames_new') }}">
+                    <i class="fas fa-plus"></i>
+                    <p>Add new game</p>
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+
+            <div class="modif">
+                <a href="{{ path('adminvideogames_show') }}">
+                    <i class="fas fa-plus"></i>
+                    <p>Edit a game</p>
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+
+            <h2 class="titreadmin">CATEGORIES</h2>
+
+            <div class="modif">
+                <a href="{{ path('admincategory_new') }}">
+                    <i class="fas fa-plus"></i>
+                    <p>Add new categories</p>
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+
+            <div class="modif">
+                <a href="{{ path('admincategory_show') }}">
+                    <i class="fas fa-plus"></i>
+                    <p>Edit a categories</p>
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -4,21 +4,33 @@ namespace App\Controller\front;
 
 use App\Entity\Videogames;
 use App\Form\VideogamesType;
+use App\Form\SearchVideogamesType;
 use App\Repository\VideogamesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/videogames')]
 class VideogamesController extends AbstractController
 {
-    #[Route('/', name: 'videogames_index', methods: ['GET'])]
-    public function index(VideogamesRepository $videogamesRepository): Response
+    #[Route('/', name: 'videogames_index', methods: ['GET', 'POST'])]
+    public function index(Request $request, VideogamesRepository $videogamesRepository): Response
     {
+        $form = $this->createForm(SearchVideogamesType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            $videogames = $videogamesRepository->findLikeName($search);
+        } else {
+            $videogames = $videogamesRepository->findAll();
+        }
+
         return $this->render('front/videogames/index.html.twig', [
-            'videogames' => $videogamesRepository->findAll(),
+            'videogames' => $videogames,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -67,6 +79,8 @@ class VideogamesController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
 
 
 }

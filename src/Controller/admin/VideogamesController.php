@@ -51,7 +51,7 @@ class VideogamesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin/videogames/show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('adminvideogames_show', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/videogames/edit.html.twig', [
