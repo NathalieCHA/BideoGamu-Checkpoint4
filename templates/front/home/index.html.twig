@@ -1,0 +1,27 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}BideoGamu{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<div class="videogames">
+        {% for videogame in videogames %}
+            <div class="encart">
+                <div class="full">
+                    <a href="{{ path("videogames_index") }}"><img src={{ videogame.img }}></a>
+                </div>
+                    <div class ="cliquable">
+                        <h2>{{ videogame.name }}</h2>
+                        <p>{{ videogame.category.name }}<p>
+                        <p>{{ videogame.description| striptags | slice(0,300) }} <a href="">[...]</a></p>
+                    </div>
+            </div>
+        {% else %}
+            <p>No game fund.</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

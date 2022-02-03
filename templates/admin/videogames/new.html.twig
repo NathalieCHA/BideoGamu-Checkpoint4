@@ -1,0 +1,11 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}New Videogames{% endblock %}
+
+{% block body %}
+    <h1>Create new Videogames</h1>
+
+    {{ include('/admin/videogames/_form.html.twig') }}
+
+    <a href="{{ path('admin') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="categoryname">
+        {% for category in categories %}
+            <div class="category">
+                {# <a href="{{ path("category_show", { categoryName: category.name }) }}"> #}
+                {{ category.name }}
+                {# </a> #}
+            </div>
+        {% else %}
+            Aucune catégorie trouvée.
+        {% endfor %}
+        <br/>
+    </div>
+
+    <div class="boutonRetour"><a href="{{ path('home') }}">Back to the homepage</a>
+    </div>
+{% endblock %}

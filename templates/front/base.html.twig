@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}BideoGamu{% endblock %}</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/index.css">
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+    <nav class="navbar">
+        <a href="{{ path('home') }}"><div class="titre">BideoGamu</div></a>
+
+        <ul class="links">
+            <div class="link"><li><a href="{{ path('videogames_index') }}">Games</a></li></div>
+            <div class="link"><li><a href="{{ path('category') }}">Categories</a></li></div>
+            {# <div class="link"><li><a href="{{ path('home') }}">Login</a></li></div> #}
+            <div class="link"><li><a href="{{ path('home') }}">Inscription</a></li></div>
+
+            <div class="link">
+                <li>
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}">Logout</a>
+                    {% else %}
+                        <a href="">Login</a>
+                    {% endif %}
+                </li>
+            </div>
+        </ul>
+
+    </nav>
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+            <div class="bottomlink"><a href="{{ path('login') }}">Login</a></div>
+    </footer>
+    {% endblock %}
+    </body>
+</html>

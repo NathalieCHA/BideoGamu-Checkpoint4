@@ -2,29 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Videogames;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VideogamesType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name')
-            ->add('description')
-            ->add('releaseDate')
-            ->add('howLongToBeat')
-            ->add('img')
-            ->add('category')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Videogames::class,
+            'data_class' => Category::class,
         ]);
     }
 }

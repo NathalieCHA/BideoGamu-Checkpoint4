@@ -25,11 +25,12 @@ class UserFixtures extends Fixture
         $manager->persist($user1);
 
         $user2 = new User();
-        $user2->setRoles(['ROLE_CLIENT']);
+        $user2->setRoles(['ROLE_CONTRIBUTOR']);
         $user2->setPassword($this->passwordHasher->hashPassword($user2, '1234'));
         $user2->setEmail('ilovegames@yahoo.com');
-
         $this->addReference('user2', $user2);
+
+        $manager->persist($user2);
 
         $manager->flush();
     }
