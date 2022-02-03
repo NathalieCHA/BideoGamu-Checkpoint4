@@ -1,0 +1,29 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}BideoGamu{% endblock %}
+
+{% block body %}
+
+    <h2 class="titreadmin">{{ name }}</h2>
+
+    <div class="videogames">
+        {% for videogame in videogames %}
+            <div class="encart">
+                <div class="full">
+                    <h1>{{ videogame.name }}</h1>
+                    <p>{{ videogame.description }}</p>
+
+                <div class="poster">
+                    <a href="{{ path("videogames_index") }}"><img src="{{ vich_uploader_asset(videogame, "imgFile") }}"></a>
+                </div>
+                </div>
+            </div>
+        {% else %}
+        Aucune série trouvée.
+        {% endfor %}
+        </div>
+    </div>
+
+<a class="redirection" href="{{ path('category') }}">back to list</a>
+
+{% endblock %}

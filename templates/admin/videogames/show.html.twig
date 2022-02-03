@@ -3,18 +3,22 @@
 {% block title %}BideoGamu{% endblock %}
 
 {% block body %}
-    <h1>videogame</h1>
-
+<div class="videogames">
     {% for videogame in videogames %}
+        <div class="encart">
+            <div class="full">
 
-        {{ videogame.name }}
-        <img src="{{ vich_uploader_asset(videogame, "imgFile") }}">
-        <a href="{{ path('adminvideogames_edit', {'id': videogame.id}) }}"><i class="far fa-eye"></i></a>
+                <img src="{{ vich_uploader_asset(videogame, "imgFile") }}">
 
-        {{ include('admin/videogames/_delete_form.html.twig') }}
+                <p>{{ videogame.name }}</p>
+            </div>
 
+            <button><a href="{{ path('adminvideogames_edit', {'id': videogame.id}) }}">edit</a>
+
+            {{ include('admin/videogames/_delete_form.html.twig') }}
+        </div>
     {% endfor %}
-
-    <a href="{{ path('admin') }}">back to admin home</a>
+</div>
+    <a class="redirection" href="{{ path('admin') }}">back to admin home</a>
 
 {% endblock %}

@@ -3,13 +3,15 @@
 {% block title %}BideoGamu{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
-    {% for category in categories %}
-                <td>{{ category.name }}</td>
+    <div class="allpage">
+        <h1>Categories</h1>
+            {% for category in categories %}
+                <p>{{ category.name }}</p>
 
-    <a href="{{ path('admincategory_edit', {'id': category.id}) }}">edit</a>
-    {{ include('admin/category/_delete_form.html.twig') }}
-        {% endfor %}
-    <a href="{{ path('admin') }}">back to admin home</a>
+                <button><a href="{{ path('admincategory_edit', {'id': category.id}) }}">edit</a></button>
+                {{ include('admin/category/_delete_form.html.twig') }}
+            {% endfor %}
+    </div>
+        <a class="redirection" href="{{ path('admin') }}">back to admin home</a>
 
 {% endblock %}

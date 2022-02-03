@@ -11,6 +11,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 14px;
+    font-family: 'Stylish', sans-serif;
 }
 
 nav {
@@ -74,7 +75,6 @@ footer {
     height: 100px;
     width: 100%;
     font-size: 14px;
-    position: absolute;
     bottom: 0;
 }
 
@@ -95,4 +95,16 @@ footer {
 
 .bottomlink:hover {
     background-color: rgb(20, 20, 20);
+}
+
+h1 {
+    font-family: 'Stylish', sans-serif;
+}
+
+.copyright {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--secondary-color);
+    font-size: 6px;
+    ;
 }

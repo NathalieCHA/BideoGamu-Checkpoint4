@@ -1,6 +1,6 @@
 {{ form_start(form) }}
 
-
+<div class="forms">
     <div class="">{{ form_label(form.name) }}</div>
         <div> {{ form_widget(form.name) }} </div>
 
@@ -55,5 +55,6 @@
             {{ form_errors(form.category) }}
     </div>
 
-    <button class="btn">{{ button_label|default('Add this new game') }}</button>
+    <button>{{ button_label|default('add this new game') }}</button>
+</div>
 {{ form_end(form) }}

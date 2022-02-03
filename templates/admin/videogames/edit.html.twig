@@ -3,12 +3,13 @@
 {% block title %}BideoGamu{% endblock %}
 
 {% block body %}
-    <h1>Edit Videogames</h1>
 
-    {{ include('admin/videogames/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="toptitle"><p>Modify the game</p></div>
+
+    {{ include('admin/videogames/_form.html.twig', {'button_label': 'update'}) }}
 
     {{ include('admin/videogames/_delete_form.html.twig') }}
 
-    <a href="{{ path('adminvideogames_show') }}">back to list</a>
+    <a class="redirection" href="{{ path('adminvideogames_show') }}">back to list</a>
 
 {% endblock %}

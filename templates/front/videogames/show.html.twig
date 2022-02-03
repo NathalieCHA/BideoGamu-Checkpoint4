@@ -3,37 +3,29 @@
 {% block title %}BideoGamu{% endblock %}
 
 {% block body %}
-    <h1>Videogames</h1>
+<div class="gamesshow">
+    <div class="name">
+        {{ videogame.name }}
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ videogame.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ videogame.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ videogame.description }}</td>
-            </tr>
-            <tr>
-                <th>ReleaseDate</th>
-                <td>{{ videogame.releaseDate ? videogame.releaseDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>HowLongToBeat</th>
-                <td>{{ videogame.howLongToBeat }}</td>
-            </tr>
-            <tr>
-                <th>Img</th>
-                <td><a href="{{ path("videogames_index") }}"><img src="{{ vich_uploader_asset(videogame, "imgFile") }}"></a></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="desc">
+        {{ videogame.description }}
+    </div>
 
-    <a href="{{ path('videogames_index') }}">back to list</a>
+    <div class="date">Release date:
+        {{ videogame.releaseDate ? videogame.releaseDate|date('Y-m-d') : '' }}
+    </div>
+
+    <div class="long">
+        How long to beat:
+        {{ videogame.howLongToBeat }}
+    </div>
+
+    <div class="poster">
+        <img src="{{ vich_uploader_asset(videogame, "imgFile") }}">
+    </div>
+</div>
+
+<a class="redirection" href="{{ path('videogames_index') }}">back to list</a>
 
 {% endblock %}
