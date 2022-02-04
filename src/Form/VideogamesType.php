@@ -25,8 +25,8 @@ class VideogamesType extends AbstractType
             ->add('howLongToBeat', IntegerType::class)
             ->add('imgFile', VichFileType::class, [
                 'required'      => false,
-                'allow_delete'  => true, // not mandatory, default is true
-                'download_uri' => true, // not mandatory, default is true
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
                 ])
             ->add('category', EntityType::class, ["class" => Category::class], ["choice_label" => "name"]
                 );
