@@ -11,7 +11,7 @@ class CategoryFixtures extends Fixture
     public const CATEGORY = [
         'Action-adventure',
         'RPG',
-        'Rythm',
+        'Rhythm',
         'Point&Click',
         'Puzzle'
 
